@@ -3,7 +3,9 @@
 ## Purpose
 
 `@editorjs/model` is the in-memory document model engine: a tree of blocks containing text/value data nodes and inline-formatting fragments, plus multi-user caret tracking. It centralizes CRUD on document structure, text content, and inline formatting, emitting typed events (from `@editorjs/model-types`) for every mutation so collaboration and rendering layers can react. It is an internal engine consumed by `core` and `ot-server`; tools and plugins should depend on `@editorjs/sdk` instead.
+
 ## Requirements
+
 ### Requirement: EditorJSModel public facade
 The system SHALL expose `EditorJSModel` as the single entry point wrapping `EditorDocument` and `CaretManager`, providing block/data/text/caret CRUD, tagging mutations with the acting `_userId`, and re-dispatching document events as `ModelEvents`.
 
@@ -123,4 +125,3 @@ The system SHALL provide an internal `ToolsRegistry` and IoC container for tool/
 - **THEN** the registered instance is returned
 
 Implemented in `src/tools/ToolsRegistry.ts`, `src/IoC/`.
-

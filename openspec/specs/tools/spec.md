@@ -5,7 +5,9 @@
 The built-in tool/plugin packages provide the default block and inline tools shipped with the editor: `@editorjs/paragraph` (block), and `@editorjs/bold`, `@editorjs/italic`, `@editorjs/inline-link` (inline). Each implements the `BlockTool`/`InlineTool` contracts from `@editorjs/sdk`.
 
 **Note**: none of these four packages contain test files; the scenarios below are derived directly from source control flow rather than confirmed by dedicated tests.
+
 ## Requirements
+
 ### Requirement: Paragraph block tool
 The system SHALL provide `Paragraph`, implementing `BlockTool<ParagraphData, ParagraphConfig>`, as the default block tool rendering plain text, with `conversionConfig: { import: 'text', export: 'text' }`.
 
@@ -95,4 +97,3 @@ The system SHALL have all inline tools (Bold, Italic, Link) implement the same c
 - **THEN** `isActive` returns `true`, using the same range-containment logic regardless of which tool is evaluating it
 
 Cross-referenced across `packages/tools/bold/src/index.ts`, `packages/tools/italic/src/index.ts`, `packages/tools/inline-link/src/index.ts`, and validated indirectly by the generic facade test `packages/sdk/src/tools/facades/BaseToolFacade.spec.ts`.
-
